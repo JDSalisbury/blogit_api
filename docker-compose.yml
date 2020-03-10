@@ -1,13 +1,15 @@
-version: '3'
+version: "3"
 
 services:
   server:
-    container_name: Django
+    container_name: Blog-Api
     build: ./api
     command: bash -c "
       cd api &&
+      python manage.py makemigrations --no-input &&
+      python manage.py migrate --no-input &&
       python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/api
     ports:
-      - '8000:8000'
+      - "8000:8000"
