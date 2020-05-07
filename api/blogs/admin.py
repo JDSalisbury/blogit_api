@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog
+from .models import Blog, Tag
 from django.utils.html import format_html
 
 
@@ -22,6 +22,7 @@ class BlogAdmin(admin.ModelAdmin):
                 'body',
                 'picture',
                 'image_tag',
+                'tags',
             ),
         }),
         ('Meta Data', {
@@ -37,3 +38,4 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Blog, BlogAdmin)
+admin.site.register(Tag)
